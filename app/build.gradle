@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk COMPILE_SDK_VERSION
+
+    defaultConfig {
+        applicationId "com.example.testapp"
+        minSdk MIN_SDK
+        targetSdk TARGET_VERSION
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$CORE_KTX_VERSION"
+    implementation "androidx.appcompat:appcompat:$APP_COMPACT_VERSION"
+    implementation "com.google.android.material:material:$MATERIAL_VERSION"
+    implementation "androidx.constraintlayout:constraintlayout:$CONSTRAINT_VERSION"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$COROUTINE_VERSION"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINE_VERSION"
+    implementation "androidx.activity:activity-ktx:$ANDROIDX_KTX"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_VERSION"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$LIFECYCLE_VERSION"
+}
